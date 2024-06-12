@@ -27,5 +27,15 @@ export class AppComponent implements OnInit {
 
   showData() {
     console.log(this.formGroups.map(group => group.value));
+    this.updateDataSource();
+  }
+
+  updateDataSource() {
+    for (let i = 0; i < this.dataSource.length; i++) {
+      this.dataSource[i].tdupr_programacion = this.formGroups[i].get('tdupr_programacion')?.value;
+      this.dataSource[i].tdupr_comentario = this.formGroups[i].get('tdupr_comentario')?.value;
+      this.dataSource[i].tdupr_justificacion = this.formGroups[i].get('tdupr_justificacion')?.value;
+    }
+    console.log('updated data: ', this.dataSource);
   }
 }
